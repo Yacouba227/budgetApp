@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@600&display=swap");
+* {
+  font-family: "Gabarito", cursive;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+.titreForm {
+  width: 28%;
+}
+.bouttonList {
+  width: 38%;
+}
+.historiqueChart {
+  width: 30%;
+}
+/* La mise en forme de la premiere partie
+c'est a dire la parties des input*/
+.titreForm .titre {
+  height: 60px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border-bottom: 2px solid rgb(72, 71, 71);
+}
+.titreForm .titre button {
+  height: 30px;
+  font-size: 16px;
+  padding-top: 6px;
+  color: rgb(250, 186, 102);
+  border: 2px solid rgb(250, 186, 102);
+  border-radius: 5px;
+}
+.titreForm .titre button:hover {
+  color: white;
+  background-color: rgb(136, 87, 23);
+  border: none;
+}
+#expence-value,
+#amount-value,
+.addExpensive {
+  border: 2px solid red;
+}
+#budget-value,
+.budget-calculate {
+  border: 2px solid rgb(2, 91, 101);
+}
+.budget-calculate:hover {
+  background-color: rgb(2, 91, 101);
+  color: white;
+}
+.contenu input {
+  width: 90%;
+  height: 20px;
+  margin-left: 8px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  padding: 8px;
+}
+.contenu span {
+  font-size: 16px;
+  margin-left: 8px;
+}
+.contenu button {
+  font-size: 16px;
+  margin-left: 8px;
+  margin-bottom: 0.4rem;
+  border-radius: 8px;
+  height: 40px;
+  cursor: pointer;
+}
+.budget {
+  border-radius: 8px;
+  border: 2px solid rgb(2, 91, 101);
+  margin-top: 0.9rem;
+}
+.budget-expence {
+  border: 2px solid red;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+.addExpensive:hover {
+  background-color: red;
+  color: white;
+}
+/* La mise en forme de la deuxieme partie
+c'est a dire la parties des listes*/
+.bouttonTrois {
+  display: flex;
+  justify-items: center;
+  justify-content: space-evenly;
+  height: 160px;
+  border-radius: 8px;
+  border-bottom: 2px solid rgb(72, 71, 71);
+}
+.divMeme {
+  width: 30%;
+  text-align: center;
+}
+.divMeme i {
+  font-size: 60px;
+  color: rgb(3, 3, 108);
+  margin-top: -1rem;
+}
+#idBalance,
+#idBudget {
+  color: rgb(14, 212, 8);
+  font-size: 28px;
+}
+#idExpence {
+  color: rgb(247, 6, 6);
+  font-size: 28px;
+}
+/* Pour le texte de la liste */
+.list {
+  margin-top: 1.5rem;
+}
+.entete {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  font-size: 20px;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+.entete i {
+  font-size: 40px;
+}
+.depenseFait {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 20px;
+  border-radius: 8px;
+  height: 30px;
+  border-bottom: 2px solid rgb(37, 138, 210);
+}
+.depenseFait button {
+  font-size: 18px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+/* La mise en forme de la troisieme partie
+c'est a dire la parties des historique et la chart js */
+.historiqueChart{
+    text-align: center;
+    background-color: #f9f7f7;
+    height: 290px !important;
+    border-radius: 8px;
+}
+.historiques button{
+    width: 90%;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 19px;
+    cursor: pointer;
+    border-color: rgb(204, 203, 203);
+}
+.historiCashes{
+  display: none;
+    margin-top: 15px;
+    background-color: #f9f7f7;
+    border-radius: 10px;
+}
+.divFille,
+.divMere{
+    width: 88%;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 10px;
+}
+.divMere{
+    font-size: 20px;
+}
+.divFille{
+    border-bottom: 2px solid rgb(37, 138, 210);
+    border-radius: 8px;
+}
+.historiCashes .btnClose{
+    display: flex;
+    justify-content: center;
+    margin-top: 16rem;
+    font-size: 19px;
+}
+
+
