@@ -13,6 +13,10 @@
     </style>
 </head>
 <body>
+    <div class="info">
+        <h1>Info</h1>
+        <span id="info">z</span>
+    </div>
     <div class="container">
         <div class="titreForm">
             <div class="titre">
@@ -58,14 +62,14 @@
                     <span><a href=""><i class="fa-solid fa-gear"></i></a></span>
                 </div>
                 <!-- Liste des dépenses -->
-                <div class="depenseFait">
+               <!--  <div class="depenseFait">
                     <span id="Expense-title">Sucre</span>
                     <span id="Expense-valuee">1 500</span>
                     <span>
                         <button style="color: rgb(14, 212, 8); margin-right: 0.6rem;"><i class="fa-solid fa-pen-to-square"></i></button>
                         <button style="color: red;"><i class="fa-solid fa-trash"></i></button>
                     </span>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="historiqueChart">
@@ -79,11 +83,11 @@
                     </div>
                     <div class="bloc">
                         <!-- Historique des dépenses -->
-                        <div class="divFille">
+                       <!--  <div class="divFille">
                             <span>01</span>
                             <span>Sucre</span>
                             <span>1 500 F</span>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="btnClose">
                         <button id="close" style="background-color: rgb(221, 80, 19); border-color: rgb(204, 203, 203);">Close</button>
@@ -91,11 +95,10 @@
                 </div>
             </div>
             <div class="myChart">
-                <canvas class="myChart" width="400" height="400"></canvas>
+                <canvas id="myChart"></canvas>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
