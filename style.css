@@ -2,7 +2,10 @@
 * {
   font-family: "Gabarito", cursive;
 }
-
+body{
+  max-width: 1440px;
+  margin: auto;
+}
 .container {
   display: flex;
   justify-content: space-around;
@@ -20,7 +23,8 @@
 c'est a dire la parties des input*/
 .titreForm .titre {
   height: 60px;
-  font-size: 15px;
+  width: 100%;
+  font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,12 +32,12 @@ c'est a dire la parties des input*/
   border-bottom: 2px solid rgb(72, 71, 71);
 }
 .titreForm .titre button {
-  height: 30px;
-  font-size: 16px;
-  padding-top: 6px;
+  height: 35px;
+  font-size: 18px;
   color: rgb(250, 186, 102);
   border: 2px solid rgb(250, 186, 102);
   border-radius: 5px;
+  margin-left: 20px;
 }
 .titreForm .titre button:hover {
   color: white;
@@ -45,6 +49,7 @@ c'est a dire la parties des input*/
 .addExpensive {
   border: 2px solid red;
 }
+
 #budget-value,
 .budget-calculate {
   border: 2px solid rgb(2, 91, 101);
@@ -220,3 +225,48 @@ c'est a dire la parties des historique et la chart js */
   right: 1.5rem;
   display: block;
 }
+
+
+@media screen and (max-width: 768px) { 
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 6%;
+
+  }
+  .titreForm {
+    width: 86%;
+    margin-bottom: 10%;
+  }
+  .bouttonList {
+    width: 86%;
+    margin-bottom: 10%;
+  }
+  .historiqueChart {
+    width: 86%;
+  }
+ }
+ @media screen and (max-width: 375px) { 
+  .titreForm .titre {
+    height: 130px;
+    width: 100%;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border-bottom: 2px solid rgb(72, 71, 71);
+  }
+  .titreForm .titre button {
+    height: 40px;
+    width: 60%;
+    color: rgb(250, 186, 102);
+    border: 2px solid rgb(250, 186, 102);
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: -10px;
+  }
+ }
