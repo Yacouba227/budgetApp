@@ -183,6 +183,26 @@ function afficheExpense(dataBase, index) {
     }, 2000);
     location.reload();
   });
+  const btnModifier = document.getElementById('editList');
+    btnModifier.addEventListener("click", () => {
+      // Récupérez la tâche à modifier en utilisant l'index
+      //const tacheAModifier = dataBase[index];
+
+      // Remplissez les champs de saisie avec les données actuelles de la tâche
+      inputTextExpense.value = dataBase.title;
+      amountValue.value = dataBase.montant;
+
+      // Supprimez la tâche du tableau dataTache
+      savedExpenses.splice(index, 1);
+
+      // Mettez à jour le localStorage avec le tableau modifié
+      localStorage.setItem("savedExpenses", JSON.stringify(savedExpenses));
+      updateBalance();
+    divAffiche.remove();
+    divAfficheHisto.remove();
+      // Affichez à nouveau la liste de tâches mise à jour
+      //location.reload();
+    });
 }
 
 let inputExpenceValue = document.getElementById("expence-value").value;
@@ -248,7 +268,7 @@ window.onload = function () {
         },
       ],
     },
-    options: { circumference: 360, rotation: 360, cutout: 140 },
+    options: { circumference: 360, rotation: 360, cutout: 80 },
   });
 };
 
