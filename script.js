@@ -70,6 +70,12 @@ budgetCalculate.addEventListener("click", (event) => {
   updateBalance();
   budgetValue.value = "";
   condition();
+  infoText.textContent = "";
+  infoText.textContent = "Ajout des budget avec succès";
+  setTimeout(() => {
+    info.classList.add("info");
+    info.classList.remove("infoa");
+  }, 2000);
 });
 // Récupération des données du stockage local pour l'expense initial
 let tabs = JSON.parse(localStorage.getItem("key"));
@@ -131,7 +137,7 @@ addExpensive.addEventListener("click", (event) => {
   }
   amountValue.value = "";
   inputTextExpense.value = "";
-  location.reload();
+  //location.reload();
 });
 // Récupérez les données de dépense depuis le stockage local
 let savedExpenses = JSON.parse(localStorage.getItem("savedExpenses")) || [];
@@ -140,7 +146,7 @@ let savedExpenses = JSON.parse(localStorage.getItem("savedExpenses")) || [];
 for (const expense of savedExpenses) {
   afficheExpense(expense, savedExpenses.indexOf(expense));
 }
-
+const essaiDiv = document.querySelector('.essaiDiv');
 function afficheExpense(dataBase, index) {
   const divAffiche = document.createElement("div");
   divAffiche.classList.add("depenseFait");
@@ -148,7 +154,7 @@ function afficheExpense(dataBase, index) {
   divAffiche.innerHTML = `<span id="Expense-title">${dataBase.title}</span>
     <span id="Expense-valuee">${dataBase.montant} F</span>
     <span>
-        <button style="color: rgb(14, 212, 8); margin-right: 0.6rem;" id="editList"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button name="${dataBase.title}" style="color: rgb(14, 212, 8); margin-right: 0.6rem;" id="editList"><i class="fa-solid fa-pen-to-square"></i></button>
         <button style="color: red;" id="deleteList"><i class="fa-solid fa-trash"></i></button>
     </span>`;
 
@@ -183,26 +189,47 @@ function afficheExpense(dataBase, index) {
     }, 2000);
     location.reload();
   });
-  const btnModifier = document.getElementById('editList');
-    btnModifier.addEventListener("click", () => {
-      // Récupérez la tâche à modifier en utilisant l'index
-      //const tacheAModifier = dataBase[index];
+  /*///////////////////////////////////////// */
+/*
+Espace pour le bouton MODIFIER
+*/
+  /****************************************** */
 
-      // Remplissez les champs de saisie avec les données actuelles de la tâche
-      inputTextExpense.value = dataBase.title;
-      amountValue.value = dataBase.montant;
+const btnModifie = document.querySelectorAll('#editList');
+const depenseFaite = document.querySelectorAll('.depenseFait');
+const addEditExpensive = document.querySelector('.addEditExpensive');
+btnModifie.forEach(element => {
+  element.addEventListener('click', function() {
+    addExpensive.style.display = 'none';
+    addEditExpensive.style.display = 'block';
+    const foundItem = savedExpenses.find(item => item.title == this.name)
+    inputTextExpense.value = foundItem.title;
+    amountValue.value = foundItem.montant;
+  })
+});
 
-      // Supprimez la tâche du tableau dataTache
-      savedExpenses.splice(index, 1);
+addEditExpensive.addEventListener('click', () =>{
+  const nom = inputTextExpense.value;
+  const price = amountValue.value;
+  edit(nom, price);
+  addEditExpensive.style.display = 'none';
+  addExpensive.style.display = 'block';
+})
+function edit(nom, price) {
+  const expenses = JSON.parse(localStorage.getItem("savedExpenses")) || [];
+  const foundItem = expenses.find(item => item.title === nom);
+  if (foundItem) {
+    foundItem.title = nom;
+    foundItem.montant = price;
+    const newExpenses = expenses.map(item => item.nom == foundItem.title ? foundItem : item);
+  localStorage.setItem('savedExpenses', JSON.stringify(newExpenses));
+  } else{
+    localStorage.setItem('savedExpenses', JSON.stringify([...expenses, {title:nom, montant:price}]));
+  }
+  
+}
 
-      // Mettez à jour le localStorage avec le tableau modifié
-      localStorage.setItem("savedExpenses", JSON.stringify(savedExpenses));
-      updateBalance();
-    divAffiche.remove();
-    divAfficheHisto.remove();
-      // Affichez à nouveau la liste de tâches mise à jour
-      //location.reload();
-    });
+
 }
 
 let inputExpenceValue = document.getElementById("expence-value").value;
@@ -225,7 +252,7 @@ function condition() {
       info.classList.add("info");
       info.classList.remove("infoa");
     }, 2000);
-  }else{
+  } else {
     info.classList.remove("info");
     info.classList.add("infoa");
     infoText.textContent = "Valider avec succes";
@@ -281,3 +308,13 @@ const colorr = () => {
   }
   return r;
 };
+function rouge() {
+  const couleurRouge = tabTout.balance;
+  if (couleurRouge < 0) {
+    idBalance.style.color = "red";
+  }
+}
+rouge();
+
+
+

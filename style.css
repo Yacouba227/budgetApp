@@ -269,4 +269,14 @@ c'est a dire la parties des historique et la chart js */
     margin-left: 20px;
     margin-top: -10px;
   }
+  
+ }
+ /***/
+ .addEditExpensive:hover {
+  background-color: red;
+  color: white;
+}
+.addEditExpensive{
+  border: 2px solid red;
+  display: none;
  }
